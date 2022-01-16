@@ -5,6 +5,8 @@
 This repository holds a [Homebridge](https://homebridge.io) plugin that enables the use of the [Easy Access](https://easyaccess.no) product called
 [Easy Code Touch](https://easyaccess.no/product/easycodetouch/).
 
+Have a look at the [changelog](./CHANGELOG.md) for details on all versions.
+
 ## Prerequisites
 
 You'll need to have the [Zigbee / BLE](https://easyaccess.no/product/easyring-lock-module/) installed in the
