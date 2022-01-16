@@ -21,7 +21,7 @@
         "prepublish": "yarn lint && yarn build",
         "clean": "tsc -b --clean",
         "watch": "yarn build && yarn link && nodemon",
-        "build": "rm tsconfig.tsbuildinfo && rimraf ./dist && tsc -b",
+        "build": "rm -f tsconfig.tsbuildinfo && rimraf ./dist && tsc -b",
         "lint": "eslint --cache . --ext .ts,.tsx --quiet --fix --max-warnings=0",
         "lint:ci": "eslint --cache . --ext .ts,.tsx --quiet",
         "ci": "yarn clean && yarn lint:ci && yarn build",
