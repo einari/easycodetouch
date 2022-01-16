@@ -1,24 +1,20 @@
-name: Build
+name: Publish
 
 on:
-  push:
-    branches:
-      - "main"
-    paths:
-      - "Source/**"
   pull_request:
-    branches:
-      - "**"
-    paths:
-      - "Source/**"
+    types: [closed]
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Setup node v16
         uses: actions/setup-node@v1
@@ -44,3 +40,17 @@ jobs:
         run: |
           export NODE_OPTIONS="--max-old-space-size=4096"
           yarn ci
+
+      - name: Release
+        id: release
+        uses: cratis/release-action@v1
+        with:
+          user-name: 'GitHub Build'
+          user-email: 'build@ingebrigtsen.blog'
+
+      - name: Publish NPM packages
+        if: ${{ steps.release.outputs.should-publish == 'true' }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          yarn publish-version ${{ steps.release.outputs.version }}
