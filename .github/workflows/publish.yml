@@ -53,4 +53,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          yarn --verbose --no-git-tag-version --new-version ${{ steps.release.outputs.version }}
+          yarn publish --verbose --no-git-tag-version --new-version ${{ steps.release.outputs.version }}
