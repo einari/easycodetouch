@@ -18,7 +18,7 @@
     },
     "main": "dist/index.js",
     "scripts": {
-        "prepublish": "yarb lint && yarn build",
+        "prepublish": "yarn lint && yarn build",
         "clean": "tsc -b --clean",
         "watch": "yarn build && yarn link && nodemon",
         "build": "rimraf ./dist && tsc -b",
