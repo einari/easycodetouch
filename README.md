@@ -28,3 +28,21 @@ The configuration object:
     }
 ]
 ```
+
+## Build
+
+You'll need [Yarn](https://yarnpkg.com) to leverage the scripts in the `package.json` file.
+
+For development purposes, install a local Homebridge on your dev-box:
+
+```shell
+sudo npm install -g --unsafe-perm homebridge homebridge-config-ui-x
+```
+
+> Note: You can drop the last package, if you don't want to have the Homebridge UI.
+
+Then you can run this plugin with watch:
+
+```shell
+yarn watch
+```
