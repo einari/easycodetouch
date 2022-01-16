@@ -1,3 +1,10 @@
+# [v3.0.1] - 2022-1-16 [PR: #5](https://github.com/einari/easycodetouch/pull/5)
+
+### Fixed
+
+- Include all files in the **dist** folder for the package.
+
+
 # [v3.0.0] - 2022-1-16 [PR: #4](https://github.com/einari/easycodetouch/pull/4)
 
 ## 1.0.0 - Initial release
